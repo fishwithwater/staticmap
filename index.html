@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <style>
+        #tool {
+            width: 100%;
+            height: 100px;
+            padding: 25px;
+        }
+
+        #tool button {
+            margin-left: 20px;
+        }
+
+        #amap {
+            width: 100%;
+            height: 590px;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 250px;
+            padding: 5px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-content: flex-start;
+
+        }
+
+        .content .column {
+            width: calc(33.33% - 10px);
+            height: 120px;
+            background-color: #ffffff;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+        .container.animation-6 {
+            -webkit-animation: rotation 1s infinite;
+            animation: rotation 1s infinite;
+        }
+
+        .container.animation-6 .shape {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        .container .shape {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 1px;
+        }
+
+        .container .shape.shape1 {
+            left: 0;
+            background-color: #5C6BC0;
+        }
+
+        .container .shape.shape2 {
+            right: 0;
+            background-color: #8BC34A;
+        }
+
+        .container .shape.shape3 {
+            bottom: 0;
+            left: 0;
+            background-color: #FFB74D;
+        }
+
+        .container .shape.shape4 {
+            bottom: 0;
+            right: 0;
+            background-color: #F44336;
+        }
+
+        @-webkit-keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        .animation-6 .shape1 {
+            -webkit-animation: animation6shape1 2s linear 0s infinite normal;
+            animation: animation6shape1 2s linear 0s infinite normal;
+        }
+
+        @-webkit-keyframes animation6shape1 {
+            0% {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+
+            25% {
+                -webkit-transform: translate(0, 18px);
+                transform: translate(0, 18px);
+            }
+
+            50% {
+                -webkit-transform: translate(18px, 18px);
+                transform: translate(18px, 18px);
+            }
+
+            75% {
+                -webkit-transform: translate(18px, 0);
+                transform: translate(18px, 0);
+            }
+        }
+
+        @keyframes animation6shape1 {
+            0% {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+
+            25% {
+                -webkit-transform: translate(0, 18px);
+                transform: translate(0, 18px);
+            }
+
+            50% {
+                -webkit-transform: translate(18px, 18px);
+                transform: translate(18px, 18px);
+            }
+
+            75% {
+                -webkit-transform: translate(18px, 0);
+                transform: translate(18px, 0);
+            }
+        }
+
+        .animation-6 .shape2 {
+            -webkit-animation: animation6shape2 2s linear 0s infinite normal;
+            animation: animation6shape2 2s linear 0s infinite normal;
+        }
+
+        @-webkit-keyframes animation6shape2 {
+            0% {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+
+            25% {
+                -webkit-transform: translate(-18px, 0);
+                transform: translate(-18px, 0);
+            }
+
+            50% {
+                -webkit-transform: translate(-18px, 18px);
+                transform: translate(-18px, 18px);
+            }
+
+            75% {
+                -webkit-transform: translate(0, 18px);
+                transform: translate(0, 18px);
+            }
+        }
+
+        @keyframes animation6shape2 {
+            0% {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+
+            25% {
+                -webkit-transform: translate(-18px, 0);
+                transform: translate(-18px, 0);
+            }
+
+            50% {
+                -webkit-transform: translate(-18px, 18px);
+                transform: translate(-18px, 18px);
+            }
+
+            75% {
+                -webkit-transform: translate(0, 18px);
+                transform: translate(0, 18px);
+            }
+        }
+
+        .animation-6 .shape3 {
+            -webkit-animation: animation6shape3 2s linear 0s infinite normal;
+            animation: animation6shape3 2s linear 0s infinite normal;
+        }
+
+        @-webkit-keyframes animation6shape3 {
+            0% {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+
+            25% {
+                -webkit-transform: translate(18px, 0);
+                transform: translate(18px, 0);
+            }
+
+            50% {
+                -webkit-transform: translate(18px, -18px);
+                transform: translate(18px, -18px);
+            }
+
+            75% {
+                -webkit-transform: translate(0, -18px);
+                transform: translate(0, -18px);
+            }
+        }
+
+        @keyframes animation6shape3 {
+            0% {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+
+            25% {
+                -webkit-transform: translate(18px, 0);
+                transform: translate(18px, 0);
+            }
+
+            50% {
+                -webkit-transform: translate(18px, -18px);
+                transform: translate(18px, -18px);
+            }
+
+            75% {
+                -webkit-transform: translate(0, -18px);
+                transform: translate(0, -18px);
+            }
+        }
+
+        .animation-6 .shape4 {
+            -webkit-animation: animation6shape4 2s linear 0s infinite normal;
+            animation: animation6shape4 2s linear 0s infinite normal;
+        }
+
+        @-webkit-keyframes animation6shape4 {
+            0% {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+
+            25% {
+                -webkit-transform: translate(0, -18px);
+                transform: translate(0, -18px);
+            }
+
+            50% {
+                -webkit-transform: translate(-18px, -18px);
+                transform: translate(-18px, -18px);
+            }
+
+            75% {
+                -webkit-transform: translate(-18px, 0);
+                transform: translate(-18px, 0);
+            }
+        }
+
+        @keyframes animation6shape4 {
+            0% {
+                -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+
+            25% {
+                -webkit-transform: translate(0, -18px);
+                transform: translate(0, -18px);
+            }
+
+            50% {
+                -webkit-transform: translate(-18px, -18px);
+                transform: translate(-18px, -18px);
+            }
+
+            75% {
+                -webkit-transform: translate(-18px, 0);
+                transform: translate(-18px, 0);
+            }
+        }
+
+        .mask {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 5999;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mask" style="visibility: hidden;">
+        <div class="content">
+            <div class="column">
+                <div class="container animation-6">
+                    <div class="shape shape1"></div>
+                    <div class="shape shape2"></div>
+                    <div class="shape shape3"></div>
+                    <div class="shape shape4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tool">
+        <form id="type">
+            <label class="radio-inline">
+                <input type="radio" name="type" value="all"> 全部
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="type" value="2016" checked> 2016
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="type" value="2017"> 2017
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="type" value="2018"> 2018
+            </label>
+            <button type="submit" class="btn btn-raised btn-info">提交</button>
+        </form>
+    </div>
+    <div id="amap"></div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('body').bootstrapMaterialDesign();
+        });
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=af4809cb527ed45c25b8ccb6d251193e">
+    </script>
+    <script type="text/javascript">
+        const host = '127.0.0.1:5000'
+        let markers = []
+        let cluster = undefined
+        let map = new AMap.Map('amap', {
+            zoom: 11, //级别
+            center: [117.2074699402, 34.2642392777], //中心点坐标
+            viewMode: '3D' //使用3D视图
+        });
+        let infoWindow = undefined
+        let reclocs = []
+        //高德设置语言    ['en', 'zh_en', 'zh_cn']
+        let mapLang = 'zh_cn'
+        map.setLang(mapLang)
+        AMap.plugin(
+            [
+                'AMap.ToolBar',
+                'AMap.OverView',
+                'AMap.Scale',
+                'AMap.MapType',
+                'AMap.MarkerClusterer',
+            ],
+            function () {
+                //异步同时加载多个插件
+                map.addControl(new AMap.ToolBar())
+
+                // 在图面添加比例尺控件，展示地图在当前层级和纬度下的比例尺
+                map.addControl(new AMap.Scale())
+
+                // 在图面添加鹰眼控件，在地图右下角显示地图的缩略图
+                map.addControl(new AMap.OverView({
+                    isOpen: true
+                }))
+
+                // 在图面添加类别切换控件，实现默认图层与卫星图、实施交通图层之间切换的控制
+                map.addControl(new AMap.MapType())
+
+                cluster = new AMap.MarkerClusterer(map, markers)
+            }
+        )
+        map.on('click', function (ev) {
+            var lnglat = ev.lnglat;
+            console.log(lnglat.toString())
+        })
+        $("#type").submit(function (e) {
+            let type = $("input:radio:checked").val()
+            submitType(type)
+            getRecloc(type)
+            e.preventDefault();
+        });
+
+        function submitType(type) {
+            if (!type) {
+                type = "?type=2016"
+            } else {
+                type = `?type=${type}`
+            }
+            showLoading()
+            $.get(`http://${host}/api/v1/map/markers${type}`, (res) => {
+                if (res.status === 0 && markers.length !== res.data.length) {
+                    cluster.removeMarkers(markers)
+                    markers = []
+                    let data = res.data
+                    for (let item of data) {
+                        let marker = new AMap.Marker({
+                            position: new AMap.LngLat(
+                                item.position.longitude,
+                                item.position.latitude
+                            ),
+                            map: map,
+                            extData: item.id,
+                        })
+                        marker.on('click', ((e) => {
+                            let id = e.target.getExtData()
+                            clickMarker(id)
+                        }))
+                        markers.push(marker)
+                    }
+                    cluster.addMarkers(markers)
+
+                }
+                hideLoading()
+            })
+        }
+        submitType()
+        getRecloc('2016')
+
+        function getRecloc(type) {
+            if (type) {
+                type = `?type=${type}`
+            } else {
+                type = ''
+            }
+            $.get(`http://${host}/api/v1/map/reclocs${type}`, function (res) {
+                if (res.status === 0 && reclocs.length !== res.data.length) {
+                    const data = res.data
+                    map.remove(reclocs)
+                    reclocs = []
+                    let icon = new AMap.Icon({
+                        image: 'recom.png',
+                        size: new AMap.Size(33, 33),
+                        imageSize: new AMap.Size(33, 33)
+                    })
+                    for (let item of data) {
+                        recloc = new AMap.Marker({
+                            map: map,
+                            position: new AMap.LngLat(item.longitude, item.latitude),
+                            anchor:'bottom-center',
+                            icon: icon,
+                            extData: item.count
+                        })
+                        recloc.on('click', (e) => {
+                            let count = e.target.getExtData()
+                            infoWindow = new AMap.InfoWindow({
+                                autoMove: true,
+                                showShadow: true,
+                                content: `
+                        <div class="card" style="width: 18rem;box-shadow:none;">
+  <div class="card-body">
+    <h5 class="card-title">推荐维修人员常驻</h5>
+    <h6 class="card-subtitle mb-2 text-muted">预计需要:${count}队</h6>
+  </div>
+</div>
+                        `
+                            })
+                            infoWindow.open(map, new AMap.LngLat(
+                                item.longitude,
+                                item.latitude
+                            ));
+                        })
+                        reclocs.push(recloc)
+                    }
+                    map.add(reclocs)
+                }
+            })
+        }
+
+        function showLoading() {
+            $(".mask").css("visibility", "visible")
+        }
+
+        function hideLoading() {
+            $(".mask").css("visibility", "hidden")
+        }
+
+        function clickMarker(id) {
+            $.get(`http://${host}/api/v1/fixdata/query-by-id?id=${id}`, (res) => {
+                if (res.status === 0) {
+                    const data = res.data
+                    infoWindow = new AMap.InfoWindow({
+                        autoMove: true,
+                        showShadow: true,
+                        content: `
+                        <div class="card" style="width: 18rem;box-shadow:none;">
+  <div class="card-body">
+    <h5 class="card-title">${data.address}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${data.fixPeople}-${data.date}-${data.startTime}</h6>
+    <p class="card-text">维修内容：${data.fixContent}</p>
+    <p class="card-text">损坏内容：${data.breakContent}</p>
+    <p class="card-text">损坏原因：${data.reasonContent}</p>
+    <p class="card-text">材料：${data.materialContent} 管径：${data.caliber} 埋深：${data.depth}</p>
+    <p class="card-text">备注：${data.fixOther}</p>
+  </div>
+</div>
+                        `
+                    })
+                    infoWindow.open(map, new AMap.LngLat(
+                        data.longitude,
+                        data.latitude
+                    ));
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

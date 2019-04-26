@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <style>
+        .e {
+            height: 380px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="row">
+        <div id="main1" class="col-sm e"></div>
+        <div id="main2" class="col-sm e"></div>
+        <div id="main3" class="col-sm e"></div>
+        <div id="main4" class="col-sm e"></div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('body').bootstrapMaterialDesign();
+        });
+    </script>
+    <script>
+        host = '127.0.0.1:5000'
+        // 基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('main1'));
+        var myChart2 = echarts.init(document.getElementById('main2'));
+        var myChart3 = echarts.init(document.getElementById('main3'));
+        var myChart4 = echarts.init(document.getElementById('main4'));
+        $.get(`http://${host}/api/v1/dashboard/get-bmc`, (res) => {
+            if (res.status === 0) {
+                option1 = {
+                    backgroundColor: '#ffffff',
+                    title: {
+                        text: '断裂',
+                        left: 'center',
+                        top: 20,
+                        textStyle: {
+                            color: '#000'
+                        }
+                    },
+
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+
+                    series: [{
+                        name: '材料',
+                        type: 'pie',
+                        radius: '65%',
+                        center: ['50%', '50%'],
+                        selectedMode: 'single',
+                        data: res.data[9].sort(function (a, b) {
+                            return a.value - b.value;
+                        }),
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#000000'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                lineStyle: {
+                                    color: '#000000'
+                                },
+                                smooth: 0.2,
+                                length: 10,
+                                length2: 20
+                            }
+                        },
+
+                        animationType: 'scale',
+                        animationEasing: 'elasticOut',
+                        animationDelay: function (idx) {
+                            return Math.random() * 200;
+                        }
+                    }]
+                };
+                option2 = {
+                    backgroundColor: '#ffffff',
+
+                    title: {
+                        text: '接口',
+                        left: 'center',
+                        top: 20,
+                        textStyle: {
+                            color: '#000'
+                        }
+                    },
+
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+
+                    series: [{
+                        name: '材料',
+                        type: 'pie',
+                        radius: '65%',
+                        center: ['50%', '50%'],
+                        selectedMode: 'single',
+                        data: res.data[2].sort(function (a, b) {
+                            return a.value - b.value;
+                        }),
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#000000'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                lineStyle: {
+                                    color: '#000000'
+                                },
+                                smooth: 0.2,
+                                length: 10,
+                                length2: 20
+                            }
+                        },
+
+                        animationType: 'scale',
+                        animationEasing: 'elasticOut',
+                        animationDelay: function (idx) {
+                            return Math.random() * 200;
+                        }
+                    }]
+                };
+                option3 = {
+                    backgroundColor: '#ffffff',
+
+                    title: {
+                        text: '砂眼',
+                        left: 'center',
+                        top: 20,
+                        textStyle: {
+                            color: '#000'
+                        }
+                    },
+
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+
+                    series: [{
+                        name: '材料',
+                        type: 'pie',
+                        radius: '65%',
+                        center: ['50%', '50%'],
+                        selectedMode: 'single',
+                        data: res.data[4].sort(function (a, b) {
+                            return a.value - b.value;
+                        }),
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#000000'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                lineStyle: {
+                                    color: '#000000'
+                                },
+                                smooth: 0.2,
+                                length: 10,
+                                length2: 20
+                            }
+                        },
+
+                        animationType: 'scale',
+                        animationEasing: 'elasticOut',
+                        animationDelay: function (idx) {
+                            return Math.random() * 200;
+                        }
+                    }]
+                };
+                option4 = {
+                    backgroundColor: '#ffffff',
+
+                    title: {
+                        text: '腐蚀',
+                        left: 'center',
+                        top: 20,
+                        textStyle: {
+                            color: '#000'
+                        }
+                    },
+
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+
+                    series: [{
+                        name: '材料',
+                        type: 'pie',
+                        radius: '65%',
+                        center: ['50%', '50%'],
+                        selectedMode: 'single',
+                        data: res.data[5].sort(function (a, b) {
+                            return a.value - b.value;
+                        }),
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#000000'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                lineStyle: {
+                                    color: '#000000'
+                                },
+                                smooth: 0.2,
+                                length: 10,
+                                length2: 20
+                            }
+                        },
+
+                        animationType: 'scale',
+                        animationEasing: 'elasticOut',
+                        animationDelay: function (idx) {
+                            return Math.random() * 200;
+                        }
+                    }]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart1.setOption(option1);
+                myChart2.setOption(option2);
+                myChart3.setOption(option3);
+                myChart4.setOption(option4);
+            }
+        })
+    </script>
+</body>
+
+</html>

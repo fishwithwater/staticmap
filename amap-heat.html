@@ -465,10 +465,7 @@
                 // 在图面添加类别切换控件，实现默认图层与卫星图、实施交通图层之间切换的控制
                 map.addControl(new AMap.MapType())
 
-                heatmapobj = new AMap.Heatmap({
-                    map: map
-                }); //在地图对象叠加热力图
-                console.log(heatmapobj)
+                heatmapobj = new AMap.Heatmap(map,{}); //在地图对象叠加热力图
             }
         )
 
@@ -483,7 +480,7 @@
             $.get(`http://${host}/api/v1/map/heat-map?year=${item.year}&month=${item.month}`, function (res) {
                 if (res.status === 0) {
                     heatmap[item.year + '' + item.month] = res.data
-                    hideLoading()
+                    
                 }
             })
         }
@@ -494,23 +491,23 @@
             if (now === date.length) {
                 clearInterval(a)
             }
-        }, 200)
-        // setTimeout(() => {
-        //     setInterval(function () {
-        //         $('#process').html(`${date[index].year}年${date[index].month}月`)
-        //         $('#process').attr('aria-valuenow', `${(index+1)*100/date.length}`)
-        //         $('#process').css('width', `${(index+1)*100/date.length}%`)
-        //         heatmapobj.setDataSet({
-        //             data: heatmap[date[index].year + '' + date[index].month],
-        //             max: 48
-        //         });
-        //         index++
-        //         if (index % date.length === 0) {
-        //             index = 0;
-        //         }
-        //     }, 3000)
+        }, 1000)
+        setTimeout(() => {
+            setInterval(function () {
+                hideLoading()
+                $('#process').html(`${date[index].year}年${date[index].month}月`)
+                $('#process').attr('aria-valuenow', `${(index+1)*100/date.length}`)
+                $('#process').css('width', `${(index+1)*100/date.length}%`)
+                heatmapobj.setDataSet({
+                    data: heatmap[date[index].year + '' + date[index].month]
+                });
+                index++
+                if (index % date.length === 0) {
+                    index = 0;
+                }
+            }, 3000)
 
-        // }, 1000)
+        }, 1000)
 
 
         function showLoading() {
